@@ -96,7 +96,7 @@ Validation order inside the route: Array check → length check → element form
 | Gate | Tool | Threshold | Blocks? | Stage | Reason |
 |------|------|-----------|---------|-------|--------|
 | SCA (dependency vulnerabilities) | `npm audit --audit-level=high` | 0 high or critical findings | Yes | PR | IT policy: no high/critical vulnerabilities |
-| Secrets in repo | `trufflehog` | Any secret found | Yes | PR | IT policy: no secrets in repository |
+| Secrets in repo | `gitleaks` | Any secret found | Yes | PR | IT policy: no secrets in repository |
 | Line coverage | Jest `--coverage` with `coverageThreshold` in `jest.config.js` | 80% lines across `src/**/*.js` (excluding `src/server.js`) | Yes | PR + main | IT policy: coverage ≥ 80% |
 
 ## Testing Strategy
