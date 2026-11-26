@@ -46,10 +46,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Detectar secretos con Gitleaks
-        uses: gitleaks/gitleaks-action@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Instalar gitleaks
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.18.4/gitleaks_8.18.4_linux_x64.tar.gz | tar -xz gitleaks
+
+      - name: Escanear historial completo
+        run: ./gitleaks detect --source . --no-banner --redact --verbose
 
   cobertura:
     runs-on: ubuntu-latest
@@ -66,3 +68,4 @@ jobs:
 
       - name: Verificar cobertura de código
         run: npx jest --coverage
+        
