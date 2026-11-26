@@ -6,7 +6,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
 
 ## Tasks
 
-- [ ] 1. Create `src/routes/habilitados.js` with full validation and filtering logic
+- [x] 1. Create `src/routes/habilitados.js` with full validation and filtering logic
   - Validate that `req.body.aprobados` is an Array; return 400 with `{ "error": "aprobados debe ser un arreglo" }` if not
   - Validate array length ≤ 87; return 400 with `{ "error": "aprobados no puede tener más de 87 elementos" }` if exceeded
   - Validate each element is a string matching `/^\d[A-Z]{3}\d{2}$/`; return 400 with `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }` on first failure

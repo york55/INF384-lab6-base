@@ -12,6 +12,7 @@ app.get('/health', (req, res) => {
 });
 
 app.use('/cursos', require('./routes/cursos'));
+app.use('/habilitados', require('./routes/habilitados'));
 
 // Generic error-handling middleware (must be registered after all routes)
 // eslint-disable-next-line no-unused-vars
