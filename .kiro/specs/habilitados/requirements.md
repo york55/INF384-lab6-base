@@ -69,3 +69,19 @@ New endpoint `POST /habilitados` that, given a list of already-approved course c
 #### Acceptance Criteria
 
 5.1. THE Sistema SHALL be configured so that running `npm test -- --coverage` exits with a non-zero code if line coverage across `src/**/*.js` (excluding `src/server.js`) falls below 80%.
+
+### Requirement 6: Vulnerabilidades en dependencias
+
+**User Story:** As a security engineer, I want the pipeline to block dependencies with known serious vulnerabilities, so that vulnerable code does not reach main.
+
+#### Acceptance Criteria
+
+6.1. IF `npm audit --audit-level=high` reports at least one high or critical vulnerability, THEN THE pipeline SHALL fail.
+
+### Requirement 7: Secretos
+
+**User Story:** As a security engineer, I want the pipeline to block commits that contain secrets, so that credentials are never exposed in the repository.
+
+#### Acceptance Criteria
+
+7.1. IF gitleaks detects a secret in the repository, THEN THE pipeline SHALL fail.
