@@ -4,7 +4,7 @@ const repositorio = require('../data/repositorio');
 const router = Router();
 
 const CODIGO_RE = /^\d[A-Z]{3}\d{2}$/;
-const MAX_APROBADOS = 87;
+const MAX_APROBADOS = 5000;
 
 // POST /habilitados
 router.post('/', (req, res) => {
