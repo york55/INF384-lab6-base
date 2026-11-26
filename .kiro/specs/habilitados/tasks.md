@@ -53,7 +53,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
     - Mock `repositorio.listar` with `jest.spyOn(...)` to throw `new Error('C:\\apps\\malla\\src\\x')`, call `POST /habilitados` and assert status 500, body `{ "error": "error interno del servidor" }`, and that the body contains neither `C:\` nor `at `
     - _Requirements: 4.3_
 
-- [ ] 4. Configure line-coverage threshold in `jest.config.js`
+- [x] 4. Configure line-coverage threshold in `jest.config.js`
   - Add `coverageThreshold: { global: { lines: 80 } }` to the existing `jest.config.js` export
   - Run `npx jest --coverage --passWithNoTests` locally to confirm it passes before committing
   - _Requirements: 5.1_

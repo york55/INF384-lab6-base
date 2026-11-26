@@ -36,6 +36,18 @@
         "chatSessionId": "sess_2a39e3da-b67e-48f7-b2ac-d41e8f73814e",
         "timestamp": 1795731817675
       }
+    ],
+    "4. Configure line-coverage threshold in `jest.config.js`": [
+      {
+        "executionId": "e98bd8c4-e19a-4e14-a87f-6f6d7f762531",
+        "chatSessionId": "sess_afe8d284-f2b3-48e4-b4bb-16a7c6901524",
+        "timestamp": 1795731952662
+      },
+      {
+        "executionId": "e98bd8c4-e19a-4e14-a87f-6f6d7f762531",
+        "chatSessionId": "sess_afe8d284-f2b3-48e4-b4bb-16a7c6901524",
+        "timestamp": 1795731991007
+      }
     ]
   }
 }
