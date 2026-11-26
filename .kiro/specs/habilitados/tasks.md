@@ -65,7 +65,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
   - Run on `pull_request` and on push to `main`
   - _Requirements: 5.1, 6.1, 7.1_
 
-- [-] 6. Checkpoint — ensure all tests pass
+- [x] 6. Checkpoint — ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
