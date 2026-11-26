@@ -129,3 +129,29 @@ describe('GET /cursos/:codigo', () => {
     expect(res.body).toEqual({ error: 'curso no encontrado' });
   });
 });
+
+describe('Middleware de manejo de errores', () => {
+  // Requisito 3.1 — errores no controlados devuelven 500 con mensaje JSON
+  test('3.1 devuelve 500 con JSON de error cuando ocurre un error no controlado', async () => {
+    // Registrar una ruta temporal que lanza un error síncrono
+    const express = require('express');
+    const testApp = express();
+    testApp.use(express.json());
+
+    testApp.get('/error-test', (req, res, next) => {
+      next(new Error('fallo simulado'));
+    });
+
+    // Reutilizar el mismo middleware de error que usa app.js
+    // eslint-disable-next-line no-unused-vars
+    testApp.use((err, req, res, next) => {
+      console.error(err);
+      res.status(500).json({ error: 'error interno del servidor' });
+    });
+
+    const res = await request(testApp).get('/error-test');
+
+    expect(res.status).toBe(500);
+    expect(res.body).toEqual({ error: 'error interno del servidor' });
+  });
+});

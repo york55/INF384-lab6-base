@@ -13,4 +13,11 @@ app.get('/health', (req, res) => {
 
 app.use('/cursos', require('./routes/cursos'));
 
+// Generic error-handling middleware (must be registered after all routes)
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: 'error interno del servidor' });
+});
+
 module.exports = app;
