@@ -84,3 +84,48 @@ describe('GET /cursos', () => {
     expect(res.body).toEqual({ error: 'ciclo debe ser un entero entre 5 y 10' });
   });
 });
+
+describe('GET /cursos/:codigo', () => {
+  // Requisito 2.1 — devuelve el curso con sus requisitos (id y nombre)
+  test('2.1 devuelve 200 con el detalle del curso y prerequisites con id y name', async () => {
+    // 1CON27 tiene un prereq: 1IND90
+    const res = await request(app).get('/cursos/1CON27');
+
+    expect(res.status).toBe(200);
+    expect(res.body).toMatchObject({
+      id: '1CON27',
+      name: 'Contabilidad y Finanzas',
+      credits: expect.any(Number),
+      cycle: expect.any(Number),
+      type: expect.stringMatching(/^(obligatorio|electivo)$/),
+    });
+    expect(Array.isArray(res.body.prerequisites)).toBe(true);
+    expect(res.body.prerequisites.length).toBeGreaterThan(0);
+    for (const prereq of res.body.prerequisites) {
+      expect(prereq).toEqual(
+        expect.objectContaining({
+          id: expect.any(String),
+          name: expect.any(String),
+        }),
+      );
+    }
+  });
+
+  test('2.1 devuelve prerequisites vacío para un curso sin requisitos', async () => {
+    // 1GES92 no tiene prerequisites
+    const res = await request(app).get('/cursos/1GES92');
+
+    expect(res.status).toBe(200);
+    expect(res.body.id).toBe('1GES92');
+    expect(Array.isArray(res.body.prerequisites)).toBe(true);
+    expect(res.body.prerequisites).toHaveLength(0);
+  });
+
+  // Requisito 2.2 — código inexistente → 404
+  test('2.2 devuelve 404 cuando el código no existe', async () => {
+    const res = await request(app).get('/cursos/NOEXISTE');
+
+    expect(res.status).toBe(404);
+    expect(res.body).toEqual({ error: 'curso no encontrado' });
+  });
+});

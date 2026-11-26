@@ -6,7 +6,7 @@
   - Tests con supertest para 1.1, 1.2 y 1.3
   - _Requisitos: 1.1, 1.2, 1.3_
 
-- [ ] 2. Implementar `GET /cursos/:codigo`
+- [x] 2. Implementar `GET /cursos/:codigo`
   - Resolver el nombre de cada requisito con el repositorio
   - Tests para 2.1 y 2.2
   - _Requisitos: 2.1, 2.2_
