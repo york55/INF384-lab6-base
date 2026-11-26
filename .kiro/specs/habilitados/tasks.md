@@ -58,7 +58,14 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
   - Run `npx jest --coverage --passWithNoTests` locally to confirm it passes before committing
   - _Requirements: 5.1_
 
-- [ ] 5. Checkpoint — ensure all tests pass
+- [ ] 5. Add CI gates in `.github/workflows/ci.yml`
+  - Job `sca`: `npm audit --audit-level=high`
+  - Job `secretos`: gitleaks with `fetch-depth: 0`
+  - Job de cobertura: `npx jest --coverage`
+  - Run on `pull_request` and on push to `main`
+  - _Requirements: 5.1_
+
+- [ ] 6. Checkpoint — ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
 
 ## Notes
@@ -78,7 +85,8 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
     { "id": 1, "tasks": ["2"] },
     { "id": 2, "tasks": ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6"] },
     { "id": 3, "tasks": ["4"] },
-    { "id": 4, "tasks": ["5"] }
+    { "id": 4, "tasks": ["5"] },
+    { "id": 5, "tasks": ["6"] }
   ]
 }
 ```
