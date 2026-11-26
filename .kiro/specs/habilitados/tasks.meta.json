@@ -48,6 +48,25 @@
         "chatSessionId": "sess_afe8d284-f2b3-48e4-b4bb-16a7c6901524",
         "timestamp": 1795731991007
       }
+    ],
+    "5. Add CI gates in `.github/workflows/ci.yml`": [
+      {
+        "executionId": "7134af2d-955f-4b6f-bf14-b0361be35f84",
+        "chatSessionId": "sess_688fd301-31e1-45f4-9f16-a9f2f2cd55fc",
+        "timestamp": 1795732020196
+      },
+      {
+        "executionId": "7134af2d-955f-4b6f-bf14-b0361be35f84",
+        "chatSessionId": "sess_688fd301-31e1-45f4-9f16-a9f2f2cd55fc",
+        "timestamp": 1795732042539
+      }
+    ],
+    "6. Checkpoint — ensure all tests pass": [
+      {
+        "executionId": "c1cb5bf6-170d-483e-bd98-79006c21498b",
+        "chatSessionId": "sess_22ab1a0c-ca0e-4aa8-8dd2-ce9caa77ce63",
+        "timestamp": 1795732056530
+      }
     ]
   }
 }
