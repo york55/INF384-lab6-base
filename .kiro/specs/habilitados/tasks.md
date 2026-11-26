@@ -50,7 +50,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
     - _Requirements: 4.1, 4.2_
 
   - [ ] 3.6 Verify 500 handler does not leak internals
-    - Trigger an unhandled error path and confirm the response body does not contain a stack trace or file path
+    - Mock `repositorio.listar` with `jest.spyOn(...)` to throw `new Error('C:\\apps\\malla\\src\\x')`, call `POST /habilitados` and assert status 500, body `{ "error": "error interno del servidor" }`, and that the body contains neither `C:\` nor `at `
     - _Requirements: 4.3_
 
 - [ ] 4. Configure line-coverage threshold in `jest.config.js`
@@ -63,7 +63,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
   - Job `secretos`: gitleaks with `fetch-depth: 0`
   - Job de cobertura: `npx jest --coverage`
   - Run on `pull_request` and on push to `main`
-  - _Requirements: 5.1_
+  - _Requirements: 5.1, 6.1, 7.1_
 
 - [ ] 6. Checkpoint — ensure all tests pass
   - Ensure all tests pass, ask the user if questions arise.
