@@ -1,6 +1,6 @@
 # Plan de implementación: Consulta de cursos
 
-- [ ] 1. Implementar `GET /cursos` con filtro por ciclo
+- [x] 1. Implementar `GET /cursos` con filtro por ciclo
   - Crear la ruta en `src/routes/cursos.js` usando `src/data/repositorio.js`
   - Montar el router en `src/app.js`
   - Tests con supertest para 1.1, 1.2 y 1.3

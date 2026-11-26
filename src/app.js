@@ -11,6 +11,6 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok', cursos: repositorio.listar().length });
 });
 
-// Aquí se montará el router de cursos: app.use('/cursos', require('./routes/cursos'));
+app.use('/cursos', require('./routes/cursos'));
 
 module.exports = app;
