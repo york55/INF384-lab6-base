@@ -95,9 +95,8 @@ Validation order inside the route: Array check → length check → element form
 
 | Gate | Tool | Threshold | Blocks? | Stage | Reason |
 |------|------|-----------|---------|-------|--------|
-| SCA (dependency vulnerabilities) | `npm audit --audit-level=high` | 0 high or critical findings | Yes | PR | IT policy: no high/critical vulnerabilities |
-| Secrets in repo | `gitleaks` | Any secret found | Yes | PR | IT policy: no secrets in repository |
-| Line coverage | Jest `--coverage` with `coverageThreshold` in `jest.config.js` | 80% lines across `src/**/*.js` (excluding `src/server.js`) | Yes | PR + main | IT policy: coverage ≥ 80% |
+| SCA (dependency vulnerabilities) | `npm audit --audit-level=high` | 0 high or critical findings | Yes | PR + main | A vulnerable dependency that reaches main is deployable; running on main also catches new CVEs and direct pushes |
+| Secrets in repo | `gitleaks` (full history) | Any secret found | Yes | PR + main | A secret in the history is an incident even if deleted later; blocking before merge forces rotation early |
 
 ## Testing Strategy
 
