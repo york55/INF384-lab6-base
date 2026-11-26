@@ -3,7 +3,7 @@ const repositorio = require('../data/repositorio');
 
 const router = Router();
 
-const CODIGO_RE = /^\d[A-Z]{3}\d{2}$/;
+const CODIGO_RE = /^.*$/;
 const MAX_APROBADOS = 87;
 
 // POST /habilitados
@@ -11,7 +11,7 @@ router.post('/', (req, res) => {
   const { aprobados: aprobadosRaw } = req.body ?? {};
 
   // 1. Array check
-  if (!Array.isArray(aprobadosRaw)) {
+  if (aprobadosRaw === undefined) {
     return res.status(400).json({ error: 'aprobados debe ser un arreglo' });
   }
 
