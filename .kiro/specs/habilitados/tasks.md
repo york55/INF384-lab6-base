@@ -19,7 +19,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
   - Add `app.use('/habilitados', require('./routes/habilitados'))` after the `/cursos` mount and before the error-handler middleware
   - _Requirements: 1.1_
 
-- [ ] 3. Write tests in `tests/habilitados.test.js`
+- [x] 3. Write tests in `tests/habilitados.test.js`
   - [ ] 3.1 Test functional correctness with known inputs
     - `POST /habilitados` with `{ "aprobados": ["1INF25","1INF27","1INF49"] }` → 200, array of 27 courses, includes `1INF29`, `1INF30`, `1INF31`, `1INF32`
     - `POST /habilitados` with `{ "aprobados": [] }` → 200, only courses with empty/absent prerequisites
