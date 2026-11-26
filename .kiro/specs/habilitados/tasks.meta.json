@@ -12,6 +12,18 @@
         "chatSessionId": "sess_92a9ff43-2170-4c3a-8f23-1a23fe2b2ae4",
         "timestamp": 1795731624714
       }
+    ],
+    "2. Mount the route in `src/app.js`": [
+      {
+        "executionId": "efe6b374-0a3b-4d95-ae60-709c9e2ed2b6",
+        "chatSessionId": "sess_25fbbe9e-26df-4865-b817-275da078387e",
+        "timestamp": 1795731689685
+      },
+      {
+        "executionId": "efe6b374-0a3b-4d95-ae60-709c9e2ed2b6",
+        "chatSessionId": "sess_25fbbe9e-26df-4865-b817-275da078387e",
+        "timestamp": 1795731702619
+      }
     ]
   }
 }

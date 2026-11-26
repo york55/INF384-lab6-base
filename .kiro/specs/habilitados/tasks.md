@@ -15,7 +15,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
   - Sort result ascending by `id`; map each to `{ id, name, credits, cycle, type }`; respond 200
   - _Requirements: 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 2.1, 2.2, 3.1, 4.1, 4.2_
 
-- [ ] 2. Mount the route in `src/app.js`
+- [x] 2. Mount the route in `src/app.js`
   - Add `app.use('/habilitados', require('./routes/habilitados'))` after the `/cursos` mount and before the error-handler middleware
   - _Requirements: 1.1_
 
