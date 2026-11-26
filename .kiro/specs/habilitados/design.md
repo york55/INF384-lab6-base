@@ -35,7 +35,7 @@ Request
 
 | Field | Type | Constraints |
 |-------|------|-------------|
-| `aprobados` | Array of strings | Required; 0–87 elements; each element matches `/^[A-Z0-9]{3,10}$/i` |
+| `aprobados` | Array of strings | Required; 0–87 elements; each element matches `/^\d[A-Z]{3}\d{2}$/` |
 
 ### Response body (HTTP 200)
 
@@ -86,7 +86,7 @@ All error responses use `{ "error": "<mensaje>" }`. The generic 500 handler in `
 |-----------|------|------|
 | `aprobados` is missing or not an Array | 400 | `{ "error": "aprobados debe ser un arreglo" }` |
 | `aprobados` has more than 87 elements | 400 | `{ "error": "aprobados no puede tener más de 87 elementos" }` |
-| Any element is not a string or does not match `/^[A-Z0-9]{3,10}$/i` | 400 | `{ "error": "cada código debe ser una cadena alfanumérica de 3 a 10 caracteres" }` |
+| Any element is not a string or does not match `/^\d[A-Z]{3}\d{2}$/` | 400 | `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }` |
 | Unhandled server error | 500 | `{ "error": "error interno del servidor" }` (no stack trace) |
 
 Validation order inside the route: Array check → length check → element format check → computation.

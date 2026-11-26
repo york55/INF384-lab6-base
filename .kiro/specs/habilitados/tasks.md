@@ -9,7 +9,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
 - [ ] 1. Create `src/routes/habilitados.js` with full validation and filtering logic
   - Validate that `req.body.aprobados` is an Array; return 400 with `{ "error": "aprobados debe ser un arreglo" }` if not
   - Validate array length ≤ 87; return 400 with `{ "error": "aprobados no puede tener más de 87 elementos" }` if exceeded
-  - Validate each element is a string matching `/^[A-Z0-9]{3,10}$/i`; return 400 with `{ "error": "cada código debe ser una cadena alfanumérica de 3 a 10 caracteres" }` on first failure
+  - Validate each element is a string matching `/^\d[A-Z]{3}\d{2}$/`; return 400 with `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }` on first failure
   - Deduplicate with `new Set(aprobados)`
   - Call `repositorio.listar()`, filter to courses not in the approved set whose every prerequisite (treating absent field as `[]`) is in the approved set
   - Sort result ascending by `id`; map each to `{ id, name, credits, cycle, type }`; respond 200
@@ -28,7 +28,7 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
 
   - [ ] 3.2 Test deduplication and unknown codes
     - Sending `["1INF25","1INF25"]` returns the same result as `["1INF25"]`
-    - Sending a non-catalog code (e.g., `"XXXX99"`) does not cause an error
+    - Sending a non-catalog code (e.g., `"1XXX99"`) does not cause an error
     - _Requirements: 1.5, 1.6_
 
   - [ ] 3.3 Test input-type validation (Requirement 2 and Finding S3)
@@ -43,8 +43,8 @@ Implement `POST /habilitados`, mount it in the Express app, write tests covering
     - _Requirements: 3.1_
 
   - [ ] 3.5 Test code-format validation (Finding S2)
-    - Element is a number (`[1]`) → 400 `{ "error": "cada código debe ser una cadena alfanumérica de 3 a 10 caracteres" }`
-    - Element contains `<script>` tag → 400 `{ "error": "cada código debe ser una cadena alfanumérica de 3 a 10 caracteres" }`
+    - Element is a number (`[1]`) → 400 `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }`
+    - Element contains `<script>` tag → 400 `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }`
     - Element is too short (< 3 chars) → 400
     - Element is too long (> 10 chars) → 400
     - _Requirements: 4.1, 4.2_

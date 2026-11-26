@@ -10,7 +10,7 @@ New endpoint `POST /habilitados` that, given a list of already-approved course c
 - **Repositorio**: the `src/data/repositorio.js` module that holds the in-memory course catalog.
 - **Curso habilitado**: a course that is not in `aprobados` and whose every prerequisite code is contained in `aprobados`.
 - **aprobados**: the JSON array of course-id strings provided by the caller in the request body.
-- **Código de curso**: an alphanumeric string of 3 to 10 characters matching `/^[A-Z0-9]{3,10}$/i`.
+- **Código de curso**: a string with one digit, three uppercase letters and two digits (e.g. 1INF25), matching /^\d[A-Z]{3}\d{2}$/.
 
 ## Requirements
 
@@ -56,9 +56,9 @@ New endpoint `POST /habilitados` that, given a list of already-approved course c
 
 #### Acceptance Criteria
 
-4.1. IF any element of `aprobados` is not a string, THEN THE Sistema SHALL respond with HTTP 400 and `{ "error": "cada código debe ser una cadena alfanumérica de 3 a 10 caracteres" }`.
+4.1. IF any element of `aprobados` is not a string, THEN THE Sistema SHALL respond with HTTP 400 and `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }`.
 
-4.2. IF any string element of `aprobados` does not match the pattern `/^[A-Z0-9]{3,10}$/i`, THEN THE Sistema SHALL respond with HTTP 400 and `{ "error": "cada código debe ser una cadena alfanumérica de 3 a 10 caracteres" }`.
+4.2. IF any string element of `aprobados` does not match the pattern `/^\d[A-Z]{3}\d{2}$/`, THEN THE Sistema SHALL respond with HTTP 400 and `{ "error": "cada código debe tener el formato de un código de curso, por ejemplo 1INF25" }`.
 
 4.3. WHEN an unhandled error occurs anywhere in the Sistema, THE Sistema SHALL respond with HTTP 500 and `{ "error": "error interno del servidor" }` without including any stack trace, file path, or internal variable name in the response body.
 
