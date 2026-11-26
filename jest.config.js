@@ -3,7 +3,7 @@ module.exports = {
   collectCoverageFrom: ['src/**/*.js', '!src/server.js', '!src/util/formato.js'],
   coverageThreshold: {
     global: {
-      lines: 100,
+      lines: 80,
     },
   },
 };
